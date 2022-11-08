@@ -1,0 +1,108 @@
+
+body {font-family: "Lato", sans-serif;}
+
+.sidebar {
+  height: 100%;
+  width: 160px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #183048 ;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+#mySidenav  {
+  position: absolute;
+  left: -58px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+#mySidenav:hover {
+left: 0;
+}
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+.popover{  /*se le declara fixed para que se muestre sobre el menu*/
+  position:fixed!important;
+  color:#000000!important;
+
+}
+
+ul.nav.navbar-nav.navbar-right { /*se mueve el ul para la derecha*/
+    margin-right: -400px;
+}
+a.nav-item.nav-link {  /*se deaplaza el link salir para que se vea a un lado del nombre*/
+    margin-top: -45px;
+    margin-left: 138px;
+}
+
+a.navbar-brand { /*se mueve el logo */
+  margin-right: 175px!important;
+      margin-left: -349px!important;
+  }
+
+li { /*se alinia el boton con el link para que ambos se puedan manipular*/
+    margin-right: 65px;
+}
+
+.card{
+  margin-left: 177px!important;
+}
+
+
+div#C_adm{/*Se mueve el card para los avisos de status de tickets y asi */
+
+    margin-right: 883px;
+    margin-bottom: 0rem!important;
+    margin-left: 177px!important;
+}
+
+p#resultado { /*se genera nuevo estilo para la letra*/
+  margin-top: -47px;
+  margin-right: 50px;
+  margin-left: 106px;
+  font-size: 35px;
+  color: coral;
+}
+
+i#t_user {  /*se modifica el icono para que se vea mas grande*/
+    font-size: 55px;
+}
+
+div#C_adm { /*para el segundo cuadro*/
+    margin-right: -235px !important;
+    margin-top: -173px !important;
+    margin-left: 213px !important;
+    max-width: 23rem !important;
+}
+
+.mb-3, .my-3 {  /*no haga espacio*/
+    margin-bottom: 0rem!important;
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
