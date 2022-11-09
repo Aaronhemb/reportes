@@ -16,6 +16,11 @@ if (isset($_POST['signup'])) {
 	$email = mysqli_real_escape_string($con, $_POST['email']);
 	$password = mysqli_real_escape_string($con, $_POST['password']);
 	$cpassword = mysqli_real_escape_string($con, $_POST['cpassword']);
+	$roll = ($_POST['roll']);
+	$telefono_cel = ($_POST['telefono_cel']);
+	$telefono_of = ($_POST['telefono_of']);
+	$ext = ($_POST['ext']);
+	$departamento = ($_POST['departamento']);
 	$terminosycond = mysqli_real_escape_string($con, $_POST['terminosycond']);
 	date_default_timezone_set("America/Mexico_City");
 	$mifecha = date('Y-m-d H:i:s');
@@ -37,12 +42,13 @@ if (isset($_POST['signup'])) {
 		$error = true;
 		$cpassword_error = "Las contraseñas no coinciden";
 	}
+
 	if(!$terminosycond) {
 		//$error = true;
 		//$terminosycond_error = "Debes aceptar Terminos y condiciones";
 	}
 	if (!$error) {
-		if(mysqli_query($con, "INSERT INTO users(name,email,password,fecha_crea) VALUES('" . $name . "', '" . $email . "', '" . md5($password) . "', '" . $mifecha . "')")) {
+		if(mysqli_query($con, "INSERT INTO users(name,email,password,roll,fecha_crea,telefono_cel,telefono_of,ext,departamento) VALUES('" . $name . "', '" . $email . "', '" . md5($password) . "','" . $roll . "', '" . $mifecha . "','" . $telefono_cel . "','" . $telefono_of . "','" . $ext . "','" . $departamento . "')")) {
 			//$successmsg = "¡Registrado exitosamente! <a href='login.php'>Click here to Login</a>";
 			$successmsg = '
 			  <div class="alert alert-success alert-dismissable fade in">
@@ -138,6 +144,53 @@ if (isset($_POST['signup'])) {
 						<span class="text-danger"><?php if (isset($cpassword_error)) echo $cpassword_error; ?></span>
 					</div>
 
+					<div class="form-group">
+						<label for="name">Usuario o Administrador </label>
+						<select type="text" name="roll" placeholder="selecciona" required class="form-control" value="<?php echo $_POST["roll"]; ?>" />
+						<option value="0">Selecciona una opcion</option>
+						<option value="1">Usuario</option>
+						<option value="2">Administrador</option>
+					</select>
+					</div>
+
+						<div class="form-group">
+							<label for="name">Telefono Celular</label>
+							<input type="text" name="telefono_cel" placeholder="Telefono celular" required  class="form-control"  />
+						</div>
+						<div class="form-group">
+							<label for="name">Telefono Oficina</label>
+							<input type="text" name="telefono_of" placeholder="Telefono Oficina" required  class="form-control"  />
+						</div>
+						<div class="form-group">
+							<label for="name">Extencion</label>
+							<input type="text" name="ext" placeholder="Extencion" required  class="form-control"  />
+						</div>
+
+						<?php
+						$con = new mysqli('localhost','root','','db_modular');
+						$query = $con->query("
+						SELECT DISTINCT sede FROM `departamentos`");
+
+
+						 ?>
+
+						<div class="form-group">
+							<label for="name">Departamento</label>
+
+							<select type="text" name="departamento" placeholder="selecciona" required class="form-control" />
+							<option value="">Selecciona una opcion</option>
+							<?php
+
+							$v = mysqli_query($con,"SELECT DISTINCT sede FROM `departamentos`");
+							while($row = mysqli_fetch_row($v)){ ?>
+							<option value="<?php echo $row['0']; ?>"><?php echo $row['0']; ?></option>
+
+						<?php } ?>
+						</select>
+
+						</div>
+
+
 					<div class="checkbox">
 					    <label>
 					      <input type="checkbox" name="terminosycond" id="terminosycond" required=""> Acepto todos los
@@ -165,6 +218,7 @@ if (isset($_POST['signup'])) {
 		</div>
 	</div>
 </div>
+
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </body>

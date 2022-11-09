@@ -58,48 +58,164 @@ a.nav-item.nav-link {  /*se deaplaza el link salir para que se vea a un lado del
 }
 
 a.navbar-brand { /*se mueve el logo */
-  margin-right: 175px!important;
-      margin-left: -349px!important;
+  margin-right: 247px!important;
+
+      margin-left: -442px!important;
   }
 
 li { /*se alinia el boton con el link para que ambos se puedan manipular*/
     margin-right: 65px;
 }
 
-.card{
+.card{ /*posicion de los card*/
   margin-left: 177px!important;
 }
 
 
-div#C_adm{/*Se mueve el card para los avisos de status de tickets y asi */
-
-    margin-right: 883px;
-    margin-bottom: 0rem!important;
-    margin-left: 177px!important;
-}
 
 p#resultado { /*se genera nuevo estilo para la letra*/
-  margin-top: -47px;
-  margin-right: 50px;
-  margin-left: 106px;
-  font-size: 35px;
-  color: coral;
+  margin-top: -54px;
+      margin-right: 8px;
+      margin-left: 83px!important;
+      font-size: 35px;
+      color: coral;
 }
+
 
 i#t_user {  /*se modifica el icono para que se vea mas grande*/
     font-size: 55px;
 }
-
-div#C_adm { /*para el segundo cuadro*/
-    margin-right: -235px !important;
-    margin-top: -173px !important;
-    margin-left: 213px !important;
-    max-width: 23rem !important;
-}
-
 .mb-3, .my-3 {  /*no haga espacio*/
     margin-bottom: 0rem!important;
 }
+.dropdown, .dropup { /*para que se quede fija las opciones*/
+    position: fixed!important;
+}
+
+i.bi.bi-file-earmark-x { /*icono de excel se modifica*/
+    margin-left: 3px;
+}
+i.bi.bi-speedometer { /*se modifica el icono de dashboard*/
+    margin-left: 3px;
+}
+i.bi.bi-info-circle { /*se modifica el icono de dashboard*/
+    margin-left: 4px;
+}
+
+
+/*Notificaciones de tickets*/
+
+  div.notif {
+  position: absolute;
+  top: 8px;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+
+  background: #343436;
+  line-height: 31px;
+  border-radius: 100%;
+  color: #fff;
+}
+
+.trans {
+  background: #f1c40f !important;         box-shadow: 0px 0px 10px #f1c40f;
+}
+
+div.notif.green {
+    width: 10px;
+    height: 10px;
+    color: transparent;
+    right: 5px;
+    transition: all 0.2s ease;
+}
+
+div.notif.trans  {  /*Acomodas el punto de inicio de la notificacion*/
+  width: 10px;
+      height: 10px ;
+      color: transparent;
+      left: 69px;
+      top: 69px;
+      transition: all 0.2s ease;
+}
+div:hover div.notif.trans { /*Al pasar el mouse se modifica el tamaño*/
+   width: 30px;
+   height: 30px;
+   right: 4px;
+   top: 60px;
+   color: #fff;
+   box-shadow: 0px 0px 60px #e74c3c;
+   left: 60px;
+}
+
+div.notif {
+    width: 30px;
+    height: 30px;
+    right: 10px;
+    color: #fff;
+    box-shadow: 0px 0px 10px transparent;
+    top: 8px;
+}
+
+
+/*Notificaciones de campana */
+
+  div.notif2 {
+  position: absolute;
+  top: 8px;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+
+  background: #343436;
+  line-height: 31px;
+  border-radius: 100%;
+  color: #fff;
+}
+
+.trans2 {
+  background: #f1c40f !important;         box-shadow: 0px 0px 10px #f1c40f;
+}
+
+
+
+div.notif2.trans2  {  /*Acomodas el punto de inicio de la notificacion*/
+  width: 10px;
+      height: 10px ;
+      color: transparent;
+      left: 307px;
+      top: 14px!important;
+      position: fixed;
+      transition: all 0.2s ease;
+}
+div:hover div.notif2.trans2 { /*Al pasar el mouse se modifica el tamaño*/
+  width: 30px;
+      height: 30px;
+      right: 15px!important;
+      top: 60px;
+      color: #fff;
+      box-shadow: 0px 0px 60px #e74c3c;
+      left: 313px;
+}
+
+div.notif2 {
+    width: 30px;
+    height: 30px;
+    right: 10px;
+    color: #fff;
+    box-shadow: 0px 0px 10px transparent;
+    top: 8px;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 @media screen and (max-height: 450px) {

@@ -38,30 +38,83 @@ include("control/conexion.php"); //conexion con el servidor
   </head>
   <body>
 		<nav class="navbar bg-light">
+			<?php //notificaciones de tickets
+			$con = new mysqli('localhost','root','','db_modular');
+			$query = $con->query("
+			SELECT COUNT(status) FROM tickets WHERE status = 0
+			");
+			foreach($query as $data)
+			{
+			$status[] = $data['COUNT(status)'];}?>
 	  <div class="container-fluid">
 	    <a class="navbar-brand" href="#">
-	      <!--<img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-	      -->Grupo Angeles
+	  	Grupo Angeles <i class="bi bi-bell-fill"></i>
+			<?php if  ($data['0'] = 0 ){
+							echo "<div id='notif2' class='notif2 trans2' style='display:none'  >";
+							echo "</div>";
+					}elseif ($status['0'] != 0) {
+						echo "<div id='notif2' class='notif2 trans2'  >";
+						echo  $status['0'];
+						echo "</div>";
+					}
+						?>
+
+
 	    </a>
 			<ul class="nav navbar-nav navbar-right">
 	      <?php if (isset($_SESSION['usr_id'])) { ?>
-	      <li><p class="navbar-text"><i class="btn btn-danger btn-xs" ><b><?php echo $_SESSION['usr_name']; ?></b></i></p></li>
-	      <a class="nav-item nav-link" href="../login/logout.php">SALIR</a>
+
 
 	      <?php }  ?>
+				<div class="dropdown" style="position:fixed;">
+				<a href="javascript:void(0)" class="brand-link dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+							<span class="brand-text font-weight-light"><?php echo ucwords($_SESSION['usr_name']) ?></span>
+
+					</a>
+					<div class="dropdown-menu" style="">
+					<!---	<a class="dropdown-item manage_account" href="javascript:void(0)" data-id="<?php echo $_SESSION['usr_name'] ?>">Administrar cuenta</a>--->
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Administrar Usuario</a>
+						<a class="dropdown-item" href="../login/logout.php">Salir</a>
+					</div>
+				</div>
+
+
 
 	    </ul>
 
 	  </div>
 	</nav>
 		<div id="mySidenav" class="sidebar">
-		  <a href="#home" data-toggle="popover" data-trigger="hover" data-content="Dashboard"><i class="fa fa-fw fa-home"  ></i></a>
-			<a href="#service" data-toggle="popover" data-trigger="hover" data-content="Tickets"><i class="bi bi-speedometer"></i></a>
+
+			<a href="index.php" data-toggle="popover" data-trigger="hover" data-content="Dashobard"><i class="bi bi-speedometer"></i></a>
+					<?php //notificaciones de tickets
+					$con = new mysqli('localhost','root','','db_modular');
+					$query = $con->query("
+					SELECT COUNT(status) FROM tickets WHERE status = 0
+					");
+					foreach($query as $data)
+					{
+					$status[] = $data['COUNT(status)'];}?>
+
+						<a href="#tickets" data-toggle="popover" data-trigger="hover" data-content="Tickets"><i class="fa fa-fw fa-ticket"></i>
+							<?php if  ($data['0'] = 0 ){
+											echo "<div id='notif' class='notif trans' style='display:none'  >";
+											echo "</div>";
+									}elseif ($status['0'] != 0) {
+										echo "<div id='notif' class='notif trans'  >";
+										echo  $status['0'];
+										echo "</div>";
+									}
+										?>
+				</a>
 				<?php if ($_SESSION['usr_roll'] ==2): ?> <!--Si la session es de Admin ingresa a ver las opciones , si es usuario entra a
 					ver solo los tickets--->
-					<a href="#roll" data-toggle="popover" data-trigger="hover" data-content="Departamentos" ><i class="fa fa-fw fa-wrench"></i></a>
-					<a href="#clients" data-toggle="popover" data-trigger="hover" data-content="Usuarios"><i class="fa fa-fw fa-user"></i></a>
-					<a href="#contact" data-toggle="popover" data-trigger="hover" data-content="Tickets"><i class="fa fa-fw fa-ticket"></i></a>
+					<a href="#Departamentos" data-toggle="popover" data-trigger="hover" data-content="Departamentos" ><i class="fa fa-fw fa-wrench"></i></a>
+					<a href="#usuarios" data-toggle="popover" data-trigger="hover" data-content="Usuarios"><i class="fa fa-fw fa-users"></i></a>
+					<a href="#admin" data-toggle="popover" data-trigger="hover" data-content="Admin"><i class="fa fa-fw fa-user"></i></a>
+					<a href="#mesa_ayuda" data-toggle="popover" data-trigger="hover" data-content="Conocimiento"><i class="bi bi-info-circle"></i></i></a>
+					<a href="#Descargas" data-toggle="popover" data-trigger="hover" data-content="extraer Info"><i class="bi bi-file-earmark-x"></i></a>
 				<?php endif; ?>
 
 		</div>
@@ -82,23 +135,76 @@ include("control/conexion.php"); //conexion con el servidor
 		$query2 = $con->query("
 		SELECT COUNT(roll) FROM users WHERE roll = 2");
 			foreach($query2 as $data2){
-			$roll2[] = $data2['COUNT(roll)'];	} ?>
+			$roll2[] = $data2['COUNT(roll)'];	}
+			$query3 = $con->query("
+			SELECT COUNT(sede) FROM departamentos ");
+				foreach($query3 as $data3){
+				$sede = $data3['COUNT(sede)'];	}
+
+				$query4 = $con->query("
+				SELECT COUNT(id_ticket) FROM tickets ");
+					foreach($query4 as $data4){
+					$ticket = $data4['COUNT(id_ticket)'];	}
+
+			?>
 
 
-				?>
+			<br><br>
 
-			<div id="C_user" class="card border-info mb-3" style="max-width: 18rem;">
-		  <div class="card-header">USUARIOS</div>
-		  <div class="card-body">
-	    <h5 class="card-title"> TOTAL DE USUARIOS</h5>
-			<i id="t_user" class="fa fa-fw fa-user"></i> <p id="resultado" class="card-text"> <?php echo  $roll['0']; ?></p>
-		</div> <br>
-			<div id="C_adm" class="card border-info mb-3" style="max-width: 18rem;">
-			<div class="card-header">ADMINISTRADORES</div>
-			<div class="card-body">
-			<h5 class="card-title"> TOTAL DE ADMIN</h5>
-			<i id="t_user" class="fa fa-fw fa-user"></i> <p id="resultado" class="card-text"> <?php echo  $roll2['0']; ?></p>
+			<div id="C_user" class="card border-info mb-3"
+			style="margin-right: 951px!important;
+
+
+			" >
+			  <div class="card-header">USUARIOS</div>
+				  <div class="card-body">
+				    <h5 class="card-title"> TOTAL DE USUARIOS</h5>
+					<i id="t_user" class="fa fa-fw fa-user"></i> <p id="resultado"  style="margin-left: 83px!important;"  class="card-text"> <?php echo  $roll['0']; ?></p>
+	 			</div>
 			</div>
+			<br>
+			<div id="C_adm" class="card border-info mb-3" style="
+			 			margin-bottom: -1rem!important;
+						margin-right: 677px !important;
+						margin-top: -177px !important;
+						margin-left: 406px !important;
+			      position: absolute!important;"  >
+			  <div class="card-header">ADMINISTRADOR</div>
+				  <div class="card-body">
+				    <h5 class="card-title"> TOTAL DE ADMINISTRADOR</h5>
+					<i id="t_user" class="fa fa-fw fa-user"></i> <p id="resultado" style="margin-left: 83px!important;"  class="card-text"> <?php echo  $roll2['0']; ?></p>
+				</div>
+			</div>
+			<br>
+			<div id="C_depa" class="card border-info mb-3" style="
+			     margin-right: 434px!important;
+			  margin-top: -199px !important;
+			    margin-left: 650px!important;
+			  position: absolute!important;
+			 	margin-bottom: -1rem!important;"  >
+				<div class="card-header">DEPARTAMENTOS</div>
+					<div class="card-body">
+						<h5 class="card-title"> TOTAL DE DEPARTAMENTOS</h5>
+					<i id="t_user" class="fa fa-fw fa-user"></i> <p id="resultado" style="margin-left: 83px!important;"  class="card-text"> <?php echo  $sede; ?></p>
+			</div>
+		</div>
+			<br>
+			<div id="C_tick" class="card border-info mb-3" style="
+			margin-bottom: -1rem!important;
+			margin-right: 231px!important;
+	    margin-left: 899px!important;
+	    margin-top: -220px!important;
+	    "  >
+				<div class="card-header">TICKETS</div>
+					<div class="card-body">
+						<h5 class="card-title"> TOTAL DE TICKETS</h5>
+				<i id="t_user" class="fa fa-fw fa-user"></i> <p id="resultado"  style="margin-left: 83px!important;"  class="card-text"> <?php echo  $ticket; ?></p>
+			</div>
+		</div>
+			<br>
+
+
+
 
 
 
