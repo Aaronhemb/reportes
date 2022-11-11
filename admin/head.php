@@ -61,7 +61,7 @@ include("control/conexion.php"); //conexion con el servidor
 							<span class="brand-text font-weight-light"><?php echo ucwords($_SESSION['usr_name']) ?></span>
 
 					</a>
-					<div class="dropdown-menu" style="">
+					<div class="dropdown-menu" style="position:absolute;">
 					<!---	<a class="dropdown-item manage_account" href="javascript:void(0)" data-id="<?php echo $_SESSION['usr_name'] ?>">Administrar cuenta</a>--->
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#">Administrar Usuario</a>
@@ -75,7 +75,7 @@ include("control/conexion.php"); //conexion con el servidor
 
 	  </div>
 	</nav>
-		<div id="mySidenav" class="sidebar">
+		<div id="mySidenav" class="sidebar" position>
 
 			<a href="index.php" data-toggle="popover" data-trigger="hover" data-content="Dashobard"><i class="bi bi-speedometer"></i></a>
 						<a href="./ticket.php" data-toggle="popover" data-trigger="hover" data-content="Tickets"><i class="fa fa-fw fa-ticket"></i>

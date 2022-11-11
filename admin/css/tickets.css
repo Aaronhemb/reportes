@@ -3,3 +3,25 @@ table#table_tickets {
     margin-top: 151px!important;
     width: 50%!important;
 }
+
+div#i_ticket {
+    margin-left: 22px;
+    margin-top: 6px;
+}
+
+div#titulo {
+    margin-left: 59px;
+    margin-top: -20px;
+}
+
+div#nombre {
+    margin-left: 58px;
+}
+div#status {
+    margin-left: 490px!important;
+    margin-top: -40px!important;
+}
+div#fecha {
+    margin-left: 486px;
+    margin-top: -10px;
+}

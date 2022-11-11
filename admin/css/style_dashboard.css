@@ -13,7 +13,7 @@ body {font-family: "Lato", sans-serif;}
   padding-top: 16px;
 }
 #mySidenav  {
-  position: absolute;
+    position: fixed;
   left: -58px;
   transition: 0.3s;
   padding: 15px;
@@ -87,9 +87,6 @@ i#t_user {  /*se modifica el icono para que se vea mas grande*/
 }
 .mb-3, .my-3 {  /*no haga espacio*/
     margin-bottom: 0rem!important;
-}
-.dropdown, .dropup { /*para que se quede fija las opciones*/
-    position: fixed!important;
 }
 
 i.bi.bi-file-earmark-x { /*icono de excel se modifica*/
@@ -229,7 +226,7 @@ div.notif2.trans2  {  /*Acomodas el punto de inicio de la notificacion*/
   width: 10px;
       height: 10px ;
       color: transparent;
-      left: 307px;
+      left: 258px;
       top: 14px!important;
 
       transition: all 0.2s ease;
@@ -241,7 +238,7 @@ div:hover div.notif2.trans2 { /*Al pasar el mouse se modifica el tamaño*/
       top: 60px;
       color: #fff;
       box-shadow: 0px 0px 60px #e74c3c;
-      left: 313px;
+      left: 260px;
 }
 
 div.notif2 {

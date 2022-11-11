@@ -5,7 +5,10 @@ SELECT COUNT(status) FROM tickets WHERE status = 1
 ");
 foreach($query as $data)
 {
-$status[] = $data['COUNT(status)'];}?>
+$status[] = $data['COUNT(status)'];}
+
+$con->close();
+?>
 
 <?php if  ($data['0'] = 0 ){
         echo "<div id='notif4' class='notif4 trans4' style='display:none'  >";
