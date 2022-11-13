@@ -1,27 +1,57 @@
 table#table_tickets {
-    margin-left: 159px!important;
-    margin-top: 151px!important;
-    width: 50%!important;
+  margin-left: 172px!important;
+  margin-top: 155px!important;
+  width: 70%!important;
 }
 
 div#i_ticket {
-    margin-left: 22px;
-    margin-top: 6px;
+  margin-left: 11px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 div#titulo {
-    margin-left: 59px;
-    margin-top: -20px;
+  margin-left: 76px;
+  margin-top: -66px;
+  margin-bottom: -5px;
+  max-width: 524px;
 }
 
 div#nombre {
-    margin-left: 58px;
+  margin-left: 76px;
+margin-top: 14px;
+}
+div#sede {
+  margin-left: 74px;
+  margin-top: 9px;
+  margin-bottom: 14px;
 }
 div#status {
-    margin-left: 490px!important;
-    margin-top: -40px!important;
+  margin-left: 719px!important;
+      margin-top: -75px!important;
+      margin-bottom: 27px;
 }
 div#fecha {
-    margin-left: 486px;
-    margin-top: -10px;
+  margin-left: 721px;
+  margin-top: -1px;
+  margin-bottom: 10px;
+}
+
+div#tabla_ticket_wrapper {
+    margin-top: -126px!important;
+}
+div#tabla_ticket_wrapper {
+  margin-top: -60px!important;
+  padding-top: 62px!important;
+}
+
+label {
+    display: none!important;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+label#context {
+    display: inline-flex!important;
 }
