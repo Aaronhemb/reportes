@@ -170,7 +170,7 @@ if (isset($_POST['signup'])) {
 						$con = new mysqli('localhost','root','','db_modular');
 						$query = $con->query("
 						SELECT DISTINCT sede FROM `departamentos`");
-
+						$con->close();
 
 						 ?>
 

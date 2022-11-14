@@ -24,12 +24,12 @@ include("control/conexion.php"); //conexion con el servidor
 					<link rel="stylesheet" href="css/new_ticket.css">
 
 				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-					<!--Link para bootstrap-->
+					<!--Link para bootstrap
 				<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 				<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 				<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
 				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 				<!--Link para iconos de la pagina-->
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -37,11 +37,10 @@ include("control/conexion.php"); //conexion con el servidor
 
 
 				<!--Link para crear los comnetarios -->
-			<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-			<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-			<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+					<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+					<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 			<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-			<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+					<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
 
     <title></title>
@@ -67,14 +66,14 @@ include("control/conexion.php"); //conexion con el servidor
 
 	      <?php }  ?>
 				<div class="dropdown" style="">
-				<a href="javascript:void(0)" class="brand-link dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+				<a href="javascript:void(1)" class="brand-link dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 							<span class="brand-text font-weight-light"><?php echo ucwords($_SESSION['usr_name']) ?></span>
 
 					</a>
 					<div class="dropdown-menu" style="position:absolute;">
-					<!---	<a class="dropdown-item manage_account" href="javascript:void(0)" data-id="<?php echo $_SESSION['usr_name'] ?>">Administrar cuenta</a>--->
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Administrar Usuario</a>
+					<!--<a class="dropdown-item manage_account" href="javascript:void(1)" data-id="<?php echo $_SESSION['usr_name'] ?>">Administrar cuenta</a> -->
+						<div id="menu_salir" class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Administrar Usuario
 						<a class="dropdown-item" href="../login/logout.php">Salir</a>
 					</div>
 				</div>

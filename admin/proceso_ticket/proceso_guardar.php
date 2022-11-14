@@ -17,7 +17,7 @@ $fecha_mod = $_POST['fecha_mod'];
 //$password = hash_hmac("sha512", $data['clave'], "LLAVE");
 
 
-$query = "INSERT INTO tickets(id_ticket,nombreR,titulo,descripcion,fecha_crea,status,departamento,type_user,leido,fecha_mod)VALUES ('$id_ticket','$nombreR','$titulo','$descripcion','$fecha_crea','$status','$departamento','$type_user','$leido','$fecha_mod')";
+$query = "INSERT INTO tickets(id_ticket,nombreR,titulo,descripcion,fecha_crea,status,departamento,type_user,leido,fecha_mod)VALUES ('$id_ticket','$nombreR','$titulo','$descripcion','$fecha_crea','0','$departamento','$type_user','$leido','$fecha_mod')";
 
 $resultado = $con->query($query);
 

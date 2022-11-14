@@ -1,71 +1,77 @@
 <?php Include("head_newticket.php"); ?>
 
 
-<form class="needs-validation" novalidate>
+<form class="needs-validation" novalidate action="./proceso_ticket/proceso_guardar.php" enctype="multipart/form-data" method="post">
   <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label for="validationCustom01">First name</label>
-      <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
+    <div class="col-md-3 mb-2">
+      <label id="form_ticket" style="display:inline-flex!important" for="validationCustom01">
+        <i class="bi bi-file-person-fill" style="width: 30px;font-size: 24px;"></i>
+        <input type="text" disabled class="form-control" id="validationCustom01" placeholder="Nombre de quien reporta" name="nombreR" value="<?php echo ucwords($_SESSION['usr_name'])?>" required>
+      </label>
     </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationCustom02">Last name</label>
-      <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
+    <div class="col-md-3 mb-2">
+      <label id="form_ticket" style="display:inline-flex!important"for="validationCustom02">
+        <i class="bi bi-person-lines-fill" style="width: 30px;font-size: 24px;"></i>
+        <input type="text" disabled class="form-control" id="validationCustom02" placeholder="Last name" name="departamento" value="<?php echo ucwords($_SESSION['usr_departamento'])?>" required>
+      </label>
     </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationCustomUsername">Username</label>
+    <div class="col-md-3 mb-2">
       <div class="input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroupPrepend">@</span>
         </div>
-        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
-        <div class="invalid-feedback">
-          Please choose a username.
+        <label id="form_ticket" style="display:inline-flex!important"for="validationCustom02">
+          <i class="bi bi-person-rolodex" style="width: 30px;font-size: 24px;"></i>
+          <input type="text"  disabled class="form-control" id="validationCustomUsername" placeholder="tipo de usuario" name="type_user" value="
+          <?php
+            if($_SESSION['usr_roll'] == 1){
+            echo "usuario";
+          }elseif ($_SESSION['usr_roll'] == 2) {
+
+            echo "Administrador";
+          }
+          ?>" aria-describedby="inputGroupPrepend" required>
+        </label>
+      </div>
+    </div>
+    <div class="col-md-3 mb-2">
+      <div class="input-group">
+        <div class="input-group-prepend">
         </div>
+        <label id="form_ticket" style="display:inline-flex!important" for="validationCustom02">
+          <i class="bi bi-calendar-date" style="width: 30px;font-size: 24px;"></i>
+          <?php $fechaActual = date('d/m/y H:i:s'); ?>
+          <input type="text"  disabled class="form-control" id="validationCustomUsername" placeholder="tipo de usuario" name="type_user" value="<?php echo $fechaActual ?>" aria-describedby="inputGroupPrepend" required>
+        </label>
       </div>
     </div>
   </div>
   <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationCustom03">City</label>
-      <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
+    <div class="col-md-8 mb- 3">
+      <label  id="form_ticket" style="display:inline-flex!important" for="validationCustom03">Titulo</label>
+      <select type="text" class="form-control" id="validationCustom03" placeholder="Titulo" required>
+        <?php  ?>
+        <option value=""></option>
+      </select>
       <div class="invalid-feedback">
-        Please provide a valid city.
+        Por Favor Agrege el titulo a su reporte , por favor
       </div>
     </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationCustom04">State</label>
-      <input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
-      <div class="invalid-feedback">
-        Please provide a valid state.
-      </div>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationCustom05">Zip</label>
-      <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
-      <div class="invalid-feedback">
-        Please provide a valid zip.
-      </div>
+
+<div class="form-row">
+  <div class="col-md-12 mb- 3">
+    <label  id="form_ticket" style="display:inline-flex!important" for="validationCustom03">Titulo</label>
+    <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
+
+    <div class="invalid-feedback">
+      Please provide a valid city.
     </div>
   </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-      <label class="form-check-label" for="invalidCheck">
-        Agree to terms and conditions
-      </label>
-      <div class="invalid-feedback">
-        You must agree before submitting.
-      </div>
-    </div>
-  </div>
+</div>
+</div>
+
 <br>
   <div id="summernote"><p>Hello Summernote</p></div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <button class="btn btn-primary" type="submit">Submit form</button>
 </form>
@@ -117,7 +123,7 @@
              ></textarea><br>
              <input class="form-contol"  type="date" name="fecha_crea" placeholder="Fecha" required
              ><br>
-             <input class="form-contol"  type="text" name="status" placeholder="status" required
+             <input class="form-contol"  type="text" name="status" placeholder="status"
              ><br>
              <input class="form-contol"  type="text" name="departamento" placeholder="departamento" required
              ><br>

@@ -21,6 +21,8 @@ if (isset($_POST['login'])) {
 			$_SESSION['usr_id'] = $row['id'];
 			$_SESSION['usr_name'] = $row['name'];
 			$_SESSION['usr_roll'] = $row['roll'];
+			$_SESSION['usr_departamento'] = $row['departamento'];
+		 
 
 			header("Location: ../admin/index.php");
 		}else
