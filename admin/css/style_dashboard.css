@@ -175,10 +175,11 @@ div.notif {
 
 
 div.notif3.trans3  {  /*Acomodas el punto de inicio de la notificacion*/
-  width: 10px;
+      width: 10px;
       height: 10px ;
       color: transparent;
       left: 69px;
+      display: inline-block;
       top: 69px;
       transition: all 0.2s ease;
 }
@@ -204,7 +205,7 @@ div.notif3 {
 /*Notificaciones de campana */
 
   div.notif2 {
-  position: absolute;
+  /*position: absolute;*/
   top: 8px;
   text-align: center;
   width: 30px;
@@ -226,9 +227,9 @@ div.notif2.trans2  {  /*Acomodas el punto de inicio de la notificacion*/
   width: 10px;
       height: 10px ;
       color: transparent;
-      left: 258px;
-      top: 14px!important;
-
+      left: 296px;
+          top: 14px!important;
+          display: inline-block!important;
       transition: all 0.2s ease;
 }
 div:hover div.notif2.trans2 { /*Al pasar el mouse se modifica el tamaño*/
@@ -254,7 +255,7 @@ div.notif2 {
 /*Notificaciones de campana en proceso */
 
   div.notif4 {
-  position: absolute;
+  /*position: absolute;*/
   top: 8px;
   text-align: center;
   width: 30px;
@@ -278,7 +279,7 @@ div.notif4.trans4  {  /*Acomodas el punto de inicio de la notificacion*/
       color: transparent;
       left: 307px;
       top: 14px!important;
-
+  display: inline-block;
       transition: all 0.2s ease;
 }
 div:hover div.notif4.trans4 { /*Al pasar el mouse se modifica el tamaño*/

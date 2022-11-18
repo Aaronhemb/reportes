@@ -1,5 +1,5 @@
 
- <th id="fila" <?php
+ <tr id="fila" <?php
    if ($rowSql["status"] == 0) {
    echo"
    style = '

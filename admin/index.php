@@ -76,7 +76,7 @@
 				<div class="card-header">TICKETS</div>
 					<div class="card-body">
 						<h5 class="card-title"> TOTAL DE TICKETS</h5>
-				<i id="t_user" class="fa fa-fw fa-user"></i> <p id="resultado"  style="margin-left: 83px!important;"  class="card-text"> <?php echo  $ticket; ?></p>
+				<i id="t_user" class="fa fa-fw fa-ticket"></i> <p id="resultado"  style="margin-left: 83px!important;"  class="card-text"> <?php echo  $ticket; ?></p>
 			</div>
 		</div>
 			<br>

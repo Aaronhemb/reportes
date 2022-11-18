@@ -43,15 +43,25 @@ div#tabla_ticket_wrapper {
 div#tabla_ticket_wrapper {
   margin-top: -60px!important;
   padding-top: 62px!important;
+
 }
 
 label {
-    display: none!important;
+    /*display: none!important;*/
     max-width: 100%;
     margin-bottom: 5px;
     font-weight: 700;
+  /*  margin-right: 350px!important;  */
 }
 
 label#context {
     display: inline-flex!important;
+}
+
+input.form-control.form-control-sm {
+    margin-right: 376px!important;
+}
+
+div#tabla_ticket_filter {
+    margin-right: 338px!important;
 }

@@ -1,7 +1,7 @@
 <?php //notificaciones de tickets
 $con = new mysqli('localhost','root','','db_modular');
 $query = $con->query("
-SELECT COUNT(status) FROM tickets WHERE status = 1
+SELECT COUNT(status) FROM tickets WHERE status = 1 AND nombreR = '".	$_SESSION['usr_name'] ."' 
 ");
 foreach($query as $data)
 {

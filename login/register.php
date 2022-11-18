@@ -21,6 +21,7 @@ if (isset($_POST['signup'])) {
 	$telefono_of = ($_POST['telefono_of']);
 	$ext = ($_POST['ext']);
 	$departamento = ($_POST['departamento']);
+	$perfil = ($_POST['perfil']);
 	$terminosycond = mysqli_real_escape_string($con, $_POST['terminosycond']);
 	date_default_timezone_set("America/Mexico_City");
 	$mifecha = date('Y-m-d H:i:s');
@@ -48,7 +49,7 @@ if (isset($_POST['signup'])) {
 		//$terminosycond_error = "Debes aceptar Terminos y condiciones";
 	}
 	if (!$error) {
-		if(mysqli_query($con, "INSERT INTO users(name,email,password,roll,fecha_crea,telefono_cel,telefono_of,ext,departamento) VALUES('" . $name . "', '" . $email . "', '" . md5($password) . "','" . $roll . "', '" . $mifecha . "','" . $telefono_cel . "','" . $telefono_of . "','" . $ext . "','" . $departamento . "')")) {
+		if(mysqli_query($con, "INSERT INTO users(name,email,password,roll,fecha_crea,telefono_cel,telefono_of,ext,departamento,perfil) VALUES('" . $name . "', '" . $email . "', '" . md5($password) . "','" . $roll . "', '" . $mifecha . "','" . $telefono_cel . "','" . $telefono_of . "','" . $ext . "','" . $departamento . "','" . $perfil . "')")) {
 			//$successmsg = "¡Registrado exitosamente! <a href='login.php'>Click here to Login</a>";
 			$successmsg = '
 			  <div class="alert alert-success alert-dismissable fade in">
@@ -121,7 +122,7 @@ if (isset($_POST['signup'])) {
 					<legend>Registro</legend>
 
 					<div class="form-group">
-						<label for="name">Generales</label>
+						<label for="name">Nombre Completo</label>
 						<input type="text" name="name" placeholder="Nombres Completos" required value="<?php if($error) echo $name; ?>" class="form-control" />
 						<span class="text-danger"><?php if (isset($name_error)) echo $name_error; ?></span>
 					</div>
@@ -166,13 +167,7 @@ if (isset($_POST['signup'])) {
 							<input type="text" name="ext" placeholder="Extencion" required  class="form-control"  />
 						</div>
 
-						<?php
-						$con = new mysqli('localhost','root','','db_modular');
-						$query = $con->query("
-						SELECT DISTINCT sede FROM `departamentos`");
-						$con->close();
 
-						 ?>
 
 						<div class="form-group">
 							<label for="name">Departamento</label>
@@ -180,14 +175,31 @@ if (isset($_POST['signup'])) {
 							<select type="text" name="departamento" placeholder="selecciona" required class="form-control" />
 							<option value="">Selecciona una opcion</option>
 							<?php
-
-							$v = mysqli_query($con,"SELECT DISTINCT sede FROM `departamentos`");
-							while($row = mysqli_fetch_row($v)){ ?>
+							$con = new mysqli('localhost','root','','db_modular');
+							$v = mysqli_query($con,"SELECT DISTINCT sede FROM departamentos");
+							while($row = mysqli_fetch_row($v)){
+								$con->close(); ?>
 							<option value="<?php echo $row['0']; ?>"><?php echo $row['0']; ?></option>
 
 						<?php } ?>
 						</select>
+						</div>
 
+
+						<div class="form-group">
+							<label for="name">Perfil</label>
+
+							<select type="text" name="perfil" placeholder="selecciona" required class="form-control" />
+							<option value="">Selecciona una opcion</option>
+							<?php
+							$con = new mysqli('localhost','root','','db_modular');
+							$v = mysqli_query($con,"SELECT DISTINCT perfil FROM perfil");
+							while($row = mysqli_fetch_row($v)){
+								$con->close(); ?>
+							<option value="<?php echo $row['0']; ?>"><?php echo $row['0']; ?></option>
+
+						<?php } ?>
+						</select>
 						</div>
 
 

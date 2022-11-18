@@ -1,7 +1,7 @@
 <?php //notificaciones de tickets
 $con = new mysqli('localhost','root','','db_modular');
 $query = $con->query("
-SELECT COUNT(status) FROM tickets WHERE status = 0
+SELECT COUNT(status) FROM tickets WHERE status = 0 
 ");
 foreach($query as $data)
 {

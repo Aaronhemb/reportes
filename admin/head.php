@@ -46,8 +46,22 @@ include("control/conexion.php"); //conexion con el servidor
 	 				<script type="text/javascript">
 	 				$(document).ready(function() {
 	 				  $('#tabla_ticket').DataTable({
+							  stateSave: true,
 
-
+								columnDefs: [
+											{
+													targets: [0],
+													orderData: [0, 1],
+											},
+											{
+													targets: [1],
+													orderData: [1, 0],
+											},
+											{
+													targets: [4],
+													orderData: [4, 0],
+											},
+									],
 
 						});
 	 				} );
@@ -64,25 +78,25 @@ include("control/conexion.php"); //conexion con el servidor
 
 
 	  <div class="container-fluid">
-	    <a class="navbar-brand" href="#">
-	  	Grupo Angeles <i class="bi bi-bell-fill">
-			<?php if ($_SESSION['usr_roll'] ==2): ?>
-			<?php include("./notificaciones/pendiente/notif2.php"); ?>
-			<?php endif; ?>
-			<?php if ($_SESSION['usr_roll'] ==1): ?>
-			<?php include("./notificaciones/proceso/notif2.php"); ?>
-			<?php endif; ?>
-			</i>
-	    </a>
+			<div id="logo" class="">
+				<a class="navbar-brand" href="#" style="margin-left: -357px!important;">
+			 Grupo Angeles <i class="bi bi-bell-fill">
+			 <?php if ($_SESSION['usr_roll'] ==2): ?>
+			 <?php include("./notificaciones/pendiente/notif2.php"); ?>
+			 <?php endif; ?>
+			 <?php if ($_SESSION['usr_roll'] ==1): ?>
+			 <?php include("./notificaciones/proceso/notif2.php"); ?>
+			 <?php endif; ?>
+			 </i>
+			 </a>
+			</div>
+
 			<ul class="nav navbar-nav navbar-right">
 	      <?php if (isset($_SESSION['usr_id'])) { ?>
-
-
 	      <?php }  ?>
 				<div class="dropdown" style="">
 				<a href="javascript:void(0)" class="brand-link dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 							<span class="brand-text font-weight-light"><?php echo ucwords($_SESSION['usr_name']) ?></span>
-
 					</a>
 					<div class="dropdown-menu" style="position:absolute;">
 					<!---	<a class="dropdown-item manage_account" href="javascript:void(0)" data-id="<?php echo $_SESSION['usr_name'] ?>">Administrar cuenta</a>--->
@@ -91,11 +105,7 @@ include("control/conexion.php"); //conexion con el servidor
 						<a class="dropdown-item" href="../login/logout.php">Salir</a>
 					</div>
 				</div>
-
-
-
 	    </ul>
-
 	  </div>
 	</nav>
 		<div id="mySidenav" class="sidebar" position>
@@ -108,6 +118,8 @@ include("control/conexion.php"); //conexion con el servidor
 							<?php if ($_SESSION['usr_roll'] ==1): ?>
 							<?php include("./notificaciones/proceso/notif.php"); ?>
 							<?php endif; ?>
+
+
 						</a>
 				<?php if ($_SESSION['usr_roll'] ==2): ?> <!--Si la session es de Admin ingresa a ver las opciones , si es usuario entra a
 					ver solo los tickets--->
