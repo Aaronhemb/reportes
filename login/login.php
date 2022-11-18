@@ -22,7 +22,7 @@ if (isset($_POST['login'])) {
 			$_SESSION['usr_name'] = $row['name'];
 			$_SESSION['usr_roll'] = $row['roll'];
 			$_SESSION['usr_departamento'] = $row['departamento'];
-		 
+		  $_SESSION['usr_perfil'] = $row['perfil'];
 
 			header("Location: ../admin/index.php");
 		}else

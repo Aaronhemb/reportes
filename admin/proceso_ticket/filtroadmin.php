@@ -3,14 +3,15 @@
 
 </form>
 
-<div class="table-responsive" style="    width: 90%;
+<div class="table-responsive"  style="    width: 90%;
     margin-left: 117px;" >
-        <table id="tabla_ticket" class="table" style="    width: 95%; text-align: center;">
+        <table id="tabla_ticket" class="table  " style="    width: 95%; text-align: center;">
                 <thead>
                         <tr>
                           <td id="arriba_abajo" style="text-align:center;">Ticket</td>
                           <td id="arriba_abajo" style="text-align:center;">Titulo</td>
                           <td id="arriba_abajo" style="text-align:center;">Reporta</td>
+                          <td id="arriba_abajo" style="text-align:center;">Perfil</td>
                           <td id="arriba_abajo" style="text-align:center;">Area</td>
                           <td id="arriba_abajo" style="text-align:center;">Status</td>
                           <td id="arriba_abajo" style="text-align:center;">Fecha Creacion</td>
@@ -25,6 +26,7 @@
                                 <td id="i_ticket"><?php echo $rowSql['id_ticket']; ?></td>
                                 <td id="titulo"><?php echo $rowSql ["titulo"]; ?>  </td>
                                 <td id="nombre"><?php echo $rowSql ["nombreR"]; ?></td>
+                                <td id="perfil"><?php echo $rowSql ["perfil"]; ?></td>
                                 <td id="sede"><?php echo $rowSql ["departamento"]; ?></td>
                                 <td id="status">
                                   <?php

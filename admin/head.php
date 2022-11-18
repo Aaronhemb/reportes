@@ -65,10 +65,8 @@ include("control/conexion.php"); //conexion con el servidor
 
 						});
 	 				} );
-
-
-
 	 				</script>
+					
 
 
     <title></title>
@@ -123,7 +121,7 @@ include("control/conexion.php"); //conexion con el servidor
 						</a>
 				<?php if ($_SESSION['usr_roll'] ==2): ?> <!--Si la session es de Admin ingresa a ver las opciones , si es usuario entra a
 					ver solo los tickets--->
-					<a href="#Departamentos" data-toggle="popover" data-trigger="hover" data-content="Departamentos" ><i class="fa fa-fw fa-wrench"></i></a>
+					<a href="./new_departamento.php" data-toggle="popover" data-trigger="hover" data-content="Departamentos" ><i class="fa fa-fw fa-wrench"></i></a>
 					<a href="#usuarios" data-toggle="popover" data-trigger="hover" data-content="Usuarios"><i class="fa fa-fw fa-users"></i></a>
 					<a href="#admin" data-toggle="popover" data-trigger="hover" data-content="Admin"><i class="fa fa-fw fa-user"></i></a>
 					<a href="#mesa_ayuda" data-toggle="popover" data-trigger="hover" data-content="Conocimiento"><i class="bi bi-info-circle"></i></i></a>

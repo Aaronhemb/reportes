@@ -26,25 +26,25 @@
 ?>
 <form id="manage_ticket" class="needs-validation"   action="./proceso_ticket/proceso_guardar.php" enctype="multipart/form-data" method="post">
   <div class="form-row">
-    <div class="col-md-3 mb-2">
+    <div class="col-md-2 mb-2">
       <label id="form_ticket" style="display:inline-flex!important" for="validationCustom01">
         <i class="bi bi-file-person-fill" style="width: 30px;font-size: 24px;"></i>
-        <input type="text"  class="form-control" id="validationCustom01" placeholder="Nombre de quien reporta" name="nombreR" value="<?php echo ucwords($_SESSION['usr_name'])?>" required>
+        <input type="text" readonly="readonly"  class="form-control" id="validationCustom01" placeholder="Nombre de quien reporta" name="nombreR" value="<?php echo ucwords($_SESSION['usr_name'])?>" required>
       </label>
     </div>
     <div class="col-md-3 mb-2">
       <label id="form_ticket" style="display:inline-flex!important"for="validationCustom02">
         <i class="bi bi-person-lines-fill" style="width: 30px;font-size: 24px;"></i>
-        <input type="text"  class="form-control" id="validationCustom02" placeholder="Last name" name="departamento" value="<?php echo ucwords($_SESSION['usr_departamento'])?>" required>
+        <input type="text" readonly="readonly" class="form-control" id="validationCustom02" placeholder="Last name" name="departamento" value="<?php echo ucwords($_SESSION['usr_departamento'])?>" required>
       </label>
     </div>
-    <div class="col-md-3 mb-2">
+    <div class="col-md-2 mb-2">
       <div class="input-group">
         <div class="input-group-prepend">
         </div>
         <label id="form_ticket" style="display:inline-flex!important"for="validationCustom02">
           <i class="bi bi-person-rolodex" style="width: 30px;font-size: 24px;"></i>
-          <input type="text"   class="form-control" id="validationCustomUsername" placeholder="tipo de usuario" name="type_user" value="
+          <input type="text" readonly="readonly"  class="form-control" id="validationCustomUsername" placeholder="tipo de usuario" name="type_user" value="
           <?php
             if($_SESSION['usr_roll'] == 1){
             echo "usuario";
@@ -56,18 +56,30 @@
         </label>
       </div>
     </div>
-    <div class="col-md-3 mb-2">
+    <div class="col-md-2 mb-2">
       <div class="input-group">
         <div class="input-group-prepend">
         </div>
         <label id="form_ticket" style="display:inline-flex!important" for="validationCustom02">
           <i class="bi bi-calendar-date" style="width: 30px;font-size: 24px;"></i>
           <?php $fechaActual = date('d/m/y H:i:s'); ?>
-          <input type="text"   class="form-control" id="validationCustomUsername" placeholder="tipo de usuario" name="fecha_crea" value="<?php echo $fechaActual ?>" aria-describedby="inputGroupPrepend" required>
+          <input type="text" readonly="readonly"  class="form-control" id="validationCustomUsername" placeholder="tipo de usuario" name="fecha_crea" value="<?php echo $fechaActual ?>" aria-describedby="inputGroupPrepend" required>
         </label>
       </div>
     </div>
-  </div>
+    <div class="col-md-2 mb-2">
+      <div class="input-group">
+        <div class="input-group-prepend">
+        </div>
+        <label id="form_ticket" style="display:inline-flex!important" for="validationCustom02">
+          <i class="bi bi-person-bounding-box" style="width: 30px;font-size: 24px;"></i>
+          <input type="text" readonly="readonly"  class="form-control" id="validationCustomUsername" placeholder="Perfil de usuario" name="perfil" value="<?php echo ucwords($_SESSION['usr_perfil'])  ?>" aria-describedby="inputGroupPrepend" required>
+        </label>
+      </div>
+    </div>
+
+
+  </div> <!--Cierre-->
   <div class="form-row">
     <div class="col-md-8 mb- 3">
       <label  id="form_ticket" style="display:inline-flex!important" for="validationCustom03">Titulo</label>
