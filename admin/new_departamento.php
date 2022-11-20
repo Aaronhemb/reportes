@@ -10,7 +10,7 @@
            padding-left: 272px;
            padding-right: 255px;
 
-       "><span class="glyphicon glyphicon-export"></span>crear mas Usuarios</a>
+       "><span class="glyphicon glyphicon-export"></span>crear mas departamentos</a>
     </div><br><br><br>
 
     </h3>

@@ -95,9 +95,13 @@ i.bi.bi-file-earmark-x { /*icono de excel se modifica*/
 i.bi.bi-speedometer { /*se modifica el icono de dashboard*/
     margin-left: 3px;
 }
+i.bi.bi-info-circle-fill {/*se modifica el icono de dashboard*/
+    margin-left: 5px!important;
+}
 i.bi.bi-info-circle { /*se modifica el icono de dashboard*/
     margin-left: 4px;
 }
+
 
 
 /*Notificaciones de tickets*/

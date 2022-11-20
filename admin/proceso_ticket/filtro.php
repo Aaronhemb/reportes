@@ -73,3 +73,6 @@ if (!isset($_POST['departamento'])){$_POST['departamento'] = '';}
 <?php if ($_SESSION['usr_roll'] ==1): ?>
 <?php include("filtrouser.php"); ?>
 <?php endif; ?>
+
+
+<br><br><br><br>

@@ -11,7 +11,9 @@
 </form>
 
 <div class="table-responsive" style="    width: 90%;
-    margin-left: 117px;" >
+    margin-left: 117px;
+    margin-bottom: 150px;
+    " >
         <table id="tabla_ticket" class="table" style="    width: 95%; text-align: center;">
                 <thead>
                         <tr>
@@ -30,7 +32,7 @@
                       <?php While($rowSql = $sql->fetch_assoc()) {   ?>
                             <?php include("color_tabla.php");  ?>
                                 <td id="i_ticket"><?php echo $rowSql['id_ticket']; ?></td>
-                                <td id="titulo"><?php echo $rowSql ["titulo"]; ?>  </td>
+                                <td id="titulo"><a href="comentarios.php">  <?php echo $rowSql ["titulo"]; ?> </a></td>
                                 <td id="nombre"><?php echo $rowSql ["nombreR"]; ?></td>
                                 <td id="sede"><?php echo $rowSql ["departamento"]; ?></td>
                                 <td id="status">

@@ -124,7 +124,8 @@ include("control/conexion.php"); //conexion con el servidor
 					<a href="./new_departamento.php" data-toggle="popover" data-trigger="hover" data-content="Departamentos" ><i class="fa fa-fw fa-wrench"></i></a>
 					<a href="./new_usuarios.php" data-toggle="popover" data-trigger="hover" data-content="Usuarios"><i class="fa fa-fw fa-users"></i></a>
 					<a href="./new_perfil.php" data-toggle="popover" data-trigger="hover" data-content="Perfiles"><i class="fa fa-fw fa-user"></i></a>
-					<a href="#mesa_ayuda" data-toggle="popover" data-trigger="hover" data-content="Conocimiento"><i class="bi bi-info-circle"></i></i></a>
+					<a href="./new_tema_ayuda.php" data-toggle="popover" data-trigger="hover" data-content="Tema de ayuda"><i class="bi bi-briefcase-fill"></i></i></a>
+					<a href="#mesa_ayuda" data-toggle="popover" data-trigger="hover" data-content="Conocimiento"><i class="bi bi-info-circle-fill"></i></i></a>
 					<a href="#Descargas" data-toggle="popover" data-trigger="hover" data-content="extraer Info"><i class="bi bi-file-earmark-x"></i></a>
 				<?php endif; ?>
 

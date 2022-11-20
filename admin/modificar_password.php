@@ -49,8 +49,8 @@ $conexion->close();
 
 
     <div class="col-md-3 mb-2">
-        <label for="perfil_user">Perfil</label>
-          <input type="text"   class="form-control" id="validationCustom02" placeholder="Password" name="password" value="<?php echo $row['password']; ?>"  >
+        <label for="perfil_user">Nuevo Password</label>
+          <input type="password"  required class="form-control" id="validationCustom02" placeholder="Password" name="password" value="<?php echo $row['password']; ?>"  >
     </div>
 
 

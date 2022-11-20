@@ -193,7 +193,7 @@ if (isset($_POST['signup'])) {
 							<option value="">Selecciona una opcion</option>
 							<?php
 							$con = new mysqli('localhost','root','','db_modular');
-							$v = mysqli_query($con,"SELECT DISTINCT perfil FROM perfil");
+							$v = mysqli_query($con,"SELECT DISTINCT perfil FROM perfil WHERE status = '1'");
 							while($row = mysqli_fetch_row($v)){
 								$con->close(); ?>
 							<option value="<?php echo $row['0']; ?>"><?php echo $row['0']; ?></option>

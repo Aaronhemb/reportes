@@ -41,7 +41,8 @@ if (!isset($_POST['ext'])){$_POST['ext'] = '';}
 </form>
 
 <div class="table-responsive" style="    width: 90%;
-    margin-left: 117px;" >
+    margin-left: 117px;
+    margin-bottom: 150px;" >
         <table id="tabla_ticket" class="table" style="    width: 50%; text-align: center;">
                 <thead>
                         <tr>
