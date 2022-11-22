@@ -5,7 +5,7 @@ include("../control/conexion.php");
 $id_ticket= ($_POST["id_ticket"]);
 $nombreR= ($_POST["nombreR"]);
 $titulo = ($_POST["titulo"]);
-$descripcion = ($_POST["descripcion"]);
+$descripcion = htmlentities(str_replace("'","&#x2019;",$_POST["descripcion"]));
 $tema = ($_POST["tema"]);
 $fecha_crea = ($_POST["fecha_crea"]);
 $status = ($_POST["status"]);

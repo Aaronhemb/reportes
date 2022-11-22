@@ -88,7 +88,9 @@ if (!isset($_POST['ext'])){$_POST['ext'] = '';}
                                 }
 
                                  ?> </td>
-                                <?php   $newDate = date("d-m-y h:i", strtotime($rowSql["fecha_crea"])); ?>
+                                <?php
+                                date_default_timezone_set('America/Mexico_City');
+                                $newDate = date("y-m-d h:i", strtotime($rowSql["fecha_crea"])); ?>
                                 <td id="fecha"><?php echo  $newDate; ?>  </td>
                                 <td id="telefono_cel"><?php echo $rowSql ["telefono_cel"]; ?> </td>
                                 <td id="telefono_of"><?php echo $rowSql ["telefono_of"]; ?> </td>

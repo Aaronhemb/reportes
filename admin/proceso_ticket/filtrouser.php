@@ -51,7 +51,9 @@
                                    ?>
 
                                  </td>
-                                <?php   $newDate = date("d-m-y h:i", strtotime($rowSql["fecha_crea"])); ?>
+                                 <?php
+                                   date_default_timezone_set('America/Mexico_City');
+                                   $newDate = date("y-m-d h:i:s:a", strtotime($rowSql["fecha_crea"])); ?>
                                 <td id="fecha"><?php echo  $newDate; ?>  </td>
 
 

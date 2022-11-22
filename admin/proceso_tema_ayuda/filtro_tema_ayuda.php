@@ -63,7 +63,9 @@ if (!isset($_POST['fecha_crea'])){$_POST['fecha_crea'] = '';}
                                 }else {
                                   echo ("Activo");
                                 } ?></td>
-                                <?php   $newDate = date("d-m-y h:i", strtotime($rowSql["fecha_crea"])); ?>
+                                <?php
+                                date_default_timezone_set('America/Mexico_City');
+                                $newDate = date("y-m-d h:i", strtotime($rowSql["fecha_crea"])); ?>
                                 <td id="fecha"><?php echo  $newDate; ?>  </td>
                                   <td> <a href="./modificar_tema_ayuda.php?id=<?php echo $rowSql['id']; ?>"><i class="bi bi-pencil-square"></i></a></td>
                                 <td> <a href="./proceso_tema_ayuda/eliminar_tema_ayuda.php?id=<?php echo $rowSql['id']; ?>"><i class="bi bi-trash3"> </i></a></td>

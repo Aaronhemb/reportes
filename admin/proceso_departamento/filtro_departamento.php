@@ -63,7 +63,9 @@ if (!isset($_POST['fecha_crea'])){$_POST['fecha_crea'] = '';}
                                 <td id="telefono"><?php echo $rowSql ["telefono"]; ?></td>
                                 <td id="ext"><?php echo $rowSql ["ext"]; ?></td>
                                 <td id="direccion"><?php echo $rowSql ["direccion"]; ?> </td>
-                                <?php   $newDate = date("d-m-y h:i", strtotime($rowSql["fecha_crea"])); ?>
+                                <?php
+                                date_default_timezone_set('America/Mexico_City');
+                                $newDate = date("y-m-d h:i", strtotime($rowSql["fecha_crea"])); ?>
                                 <td id="fecha"><?php echo  $newDate; ?>  </td>
                                   <td> <a href="./modificar_departamento.php?id=<?php echo $rowSql['id']; ?>"><i class="bi bi-pencil-square"></i></a></td>
                                 <td> <a href="./proceso_departamento/eliminar_departamento.php?id=<?php echo $rowSql['id']; ?>"><i class="bi bi-trash3"> </i></a></td>

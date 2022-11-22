@@ -62,6 +62,9 @@
         </div>
         <label id="form_ticket" style="display:inline-flex!important" for="validationCustom02">
           <i class="bi bi-calendar-date" style="width: 30px;font-size: 24px;"></i>
+          <?php
+            date_default_timezone_set('America/Mexico_City');
+            $newDate = date("y-m-d h:i:s:a", strtotime("fecha_crea")); ?>
           <?php $fechaActual = date('d/m/y H:i:s'); ?>
           <input type="text" readonly="readonly"  class="form-control" id="validationCustomUsername" placeholder="tipo de usuario" name="fecha_crea" value="<?php echo $fechaActual ?>" aria-describedby="inputGroupPrepend" required>
         </label>
@@ -97,7 +100,7 @@
 
       <option value="">Todos</option>
       <?php
-      $con = new mysqli('localhost','root','','db_modular');
+        $con = new mysqli('localhost','root','','db_modular');
         $query ="SELECT * FROM ayuda ";
         $sql = $con->query($query);
         $con->close();
@@ -116,14 +119,13 @@
 
 <br>
 
-
-  <textarea name="descripcion" id="summernote" cols="30" rows="10" class="form-control summernote"><?php echo $rowSql["descripcion"]; ?></textarea>
-
-
+<label class="control-label">Description</label>
+<textarea name="descripcion" id="" cols="30" rows="10" class="form-control summernote"><?php echo isset($description) ? $description : '' ?></textarea>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-  <button class="btn btn-primary" type="submit">Crear ticket</button>
+
+  <button class="btn btn-primary" id="save" class="btn btn-primary" onclick="save()" type="submit">Crear ticket</button>
 </form>
 
 

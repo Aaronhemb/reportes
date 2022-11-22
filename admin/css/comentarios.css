@@ -1,0 +1,44 @@
+
+input#c_ticket{
+  border-radius: 22px!important;
+    max-width: 73px;
+    text-align: center;
+    border-color: currentColor;
+    display: inline-flex;
+}
+
+input#c_nombre{
+  border-radius: 22px!important;
+  text-align: center;
+  border-color: currentColor;
+  width: auto;
+}
+
+
+input#c_depa{
+  border-radius: 22px!important;
+  text-align: center;
+  border-color: currentColor;
+  width: auto;
+}
+
+
+input#c_perfil{
+  border-radius: 22px!important;
+  text-align: center;
+  border-color: currentColor;
+  width: auto;
+}
+input#c_fecha{
+  border-radius: 22px!important;
+  text-align: center;
+  border-color: currentColor;
+  width: auto;
+}
+input#c_titulo{
+  border-radius: 22px!important;
+  text-align: center;
+  border-color: currentColor;
+  width: auto;
+  min-width: -webkit-fill-available;
+}

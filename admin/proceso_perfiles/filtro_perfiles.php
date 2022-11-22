@@ -66,7 +66,9 @@ if (!isset($_POST['fecha_crea'])){$_POST['fecha_crea'] = '';}
                                   echo ("Activo");
                                 } ?></td>
 
-                                <?php   $newDate = date("d-m-y h:i", strtotime($rowSql["fecha_crea"])); ?>
+                                <?php
+                                  date_default_timezone_set('America/Mexico_City');
+                                  $newDate = date("y-m-d h:i", strtotime($rowSql["fecha_crea"])); ?>
                                 <td id="fecha"><?php echo  $newDate; ?>  </td>
 
                                 <td> <a href="./modificar_perfil.php?id=<?php echo $rowSql['id']; ?>"><i class="bi bi-pencil-square"></i></a></td>

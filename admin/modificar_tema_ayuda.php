@@ -67,7 +67,9 @@ $conexion->close();
 
     <div class="col-md-3 mb-2">
       <label id="form_fecha"  for="validationCustom02">  Fecha de modificacion </label>
-        <?php $fechaActual = date('d/m/y H:i:s'); ?>
+        <?php
+  date_default_timezone_set('America/Mexico_City');
+        $fechaActual = date('d/m/y H:i:s'); ?>
         <input type="text" readonly="readonly"   class="form-control" id="validationCustom02" placeholder="" name="fecha_crea" value="<?php echo $fechaActual ?>" >
     </div>
   </div> <!--Cierre-->
