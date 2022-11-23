@@ -23,6 +23,7 @@
                           <td id="arriba_abajo" style="text-align:center;">Area</td>
                           <td id="arriba_abajo" style="text-align:center;">Status</td>
                           <td id="arriba_abajo" style="text-align:center;">Fecha Creacion</td>
+                          <td id="arriba_abajo" style="text-align:center;">View</td>
                         </tr>
 
                 </thead>
@@ -32,7 +33,7 @@
                       <?php While($rowSql = $sql->fetch_assoc()) {   ?>
                             <?php include("color_tabla.php");  ?>
                                 <td id="i_ticket"><?php echo $rowSql['id_ticket']; ?></td>
-                                <td id="titulo"><a href="comentarios.php">  <?php echo $rowSql ["titulo"]; ?> </a></td>
+                                <td id="titulo"> <?php echo $rowSql ["titulo"]; ?> </td>
                                 <td id="nombre"><?php echo $rowSql ["nombreR"]; ?></td>
                                 <td id="sede"><?php echo $rowSql ["departamento"]; ?></td>
                                 <td id="status">
@@ -55,6 +56,7 @@
                                    date_default_timezone_set('America/Mexico_City');
                                    $newDate = date("y-m-d h:i:s:a", strtotime($rowSql["fecha_crea"])); ?>
                                 <td id="fecha"><?php echo  $newDate; ?>  </td>
+                                    <td> <a href="./comentarios.php?id=<?php echo $rowSql['id_ticket']; ?>"><i class="bi bi-pencil-square"></i></a></td>
 
 
                     </tr><?php } ?>

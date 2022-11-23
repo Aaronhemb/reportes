@@ -1,8 +1,25 @@
 <?php Include("head_newticket.php"); ?>
 
+<?php if (@$_GET["i"]=='ok') { // Quiere decir que el fundamento se envio correctamente?>
+<center>
+<h3> La informacion se genero correctamente , gracias!
+  <br><br>  <div class="Reportes">
+       <a href="./comentarios.php?id=<?php echo $rowSql['id_ticket']; ?>" class="btn btn-success pull-right" style="
+       margin-left: 8px;
+           padding-left: 272px;
+           padding-right: 255px;
+
+       "><span class="glyphicon glyphicon-export"></span>Ir a mi ticket</a>
+    </div><br><br><br>
+
+    </h3>
+</center>
 <?php
+} else{
+?>
 
 
+<?php
 $servidor= "localhost";
 $usuario= "root";
 $password = "";
@@ -12,49 +29,48 @@ if ($conexion->connect_error) {
     die("la conexión ha fallado: " . $conexion->connect_error);
 }
 $conexion->set_charset('utf8');
-
-
 $id = $_REQUEST['id'];
-
-  $query = "SELECT * FROM tickets WHERE id_ticket ='$id' ";
+  $query = "SELECT * FROM tickets INNER JOIN users  WHERE id_ticket ='$id' ";
   $resultado = $conexion->query($query);
   $row = $resultado->fetch_assoc();
-
 $conexion->close();
-
  ?>
+ <?php include("./comentarios/modificar_comentarios.php") ?>
 
+<div class="card" style="
+width: 85%;
+margin-left: 119px!important;
+  /*  -webkit-box-shadow: -4px 4px 19px #000 !important;*/
 
-<div class="card" style="width:80%;">
-  <div class="card-header" >
-    <input type="text" readonly id="c_ticket"   value="<?php echo $row['id_ticket']; ?>">
+  ">
+  <div class="card-header" style="
+
+   /*  background:linear-gradient(40deg,#ffd86f,#fc6262) !important;*/
+  /*background: linear-gradient(40deg,#45cafc,#303f9f) !important;*/" >
+    <input type="text" readonly id="c_ticket"   value="No.<?php echo $row['id_ticket']; ?>">
     <input type="text" readonly id="c_nombre"   value="<?php echo $row['nombreR']; ?>">
-    <input type="text"  readonly id="c_depa"   value="<?php echo $row['departamento']; ?>">
-    <input type="text" readonly id="c_perfil"   value="<?php echo $row['perfil']; ?>">
-   <?php   $newDate = date("d-m-y h:i:a", strtotime($row["fecha_crea"])); ?>
-    <input id="c_fecha"for="" readonly value="Fecha: <?php echo $newDate; ?>"> <br><br>
-      <input type="text" readonly id="c_titulo"   value="<?php echo $row['titulo']; ?>">
+    <input type="text" readonly id="c_nombre"   value="<?php echo $row['departamento']; ?>">
+    <input type="text" readonly id="c_nombre"   value="<?php echo $row['perfil']; ?>">
+   <?php
+     date_default_timezone_set('America/Mexico_City');
+     $newDate = date("y-m-d h:i:s", strtotime($row["fecha_crea"])); ?>
+    <input type="text" readonly id="c_nombre"   value="<?php echo $newDate; ?>">
+
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
-
-
-
-      	<?php echo html_entity_decode($row["descripcion"]); ?>
-        <input name="descripcion" id="summernote" cols="30" rows="10" class="form-control summernote" value="<?php echo html_entity_decode($row["descripcion"]); ?>">
-        <textarea name="name" rows="8" cols="80"><?php echo $row['descripcion']; ?></textarea>
-        <textarea  id="summernote" cols="30" rows="10" class="form-control summernote" value="<?php echo $row["descripcion"]; ?>"></textarea>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-      <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-    </blockquote>
+        <div class="datos_reporte">
+          <h2 id="title"><i class="bi bi-ticket-perforated-fill"></i> TICKET</h2>
+          <h4 id="asunto"><i class="bi bi-clipboard2-minus-fill"></i><?php echo $row['titulo']; ?></h4>
+        </div>
+        <div class="texto_comentario">
+        <?php echo html_entity_decode($row["descripcion"]);?>
+        </div>
+  </blockquote>
   </div>
 </div>
 
-
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
  <script>
    $(document).ready(function() {
        $('.summernote').summernote(
@@ -64,13 +80,13 @@ $conexion->close();
                     //  $('.summernote').eq(1).html('{{$texto[0]->pruebas}}'),
                   //    $('.summernote').eq(2).html('{{$texto[0]->anexos}}'),
                       {
-                        //  disableDragAndDrop: true,
+                          //disableDragAndDrop: true,
                           height: 300,                 // set editor height
                           minHeight: null,             // set minimum height of editor
                           maxHeight: null,             // set maximum height of editor
                           lang: 'es-CO',
                           toolbar: [
-                              // [groupName, [list of button]]
+                              //[groupName, [list of button]]
                               ['style', ['bold', 'italic', 'underline', 'clear']],
                               ['font', ['strikethrough', 'superscript', 'subscript']],
                               ['fontsize', ['fontsize']],
@@ -82,9 +98,13 @@ $conexion->close();
                           ],
                       }
                   );
-
               });
-
+              $('.summernote').summernote({
+                height: 150,   //set editable area's height
+                codemirror: { // codemirror options
+                  theme: 'monokai'
+                }
+              });
  </script>
 
  <script type="text/javascript">
@@ -93,4 +113,4 @@ var markup = $('.click2edit').summernote('code');
 $('.click2edit').summernote('destroy');
 };
  </script>
- <?php
+ <?php } ?>

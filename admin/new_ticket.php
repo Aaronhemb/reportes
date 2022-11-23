@@ -64,8 +64,7 @@
           <i class="bi bi-calendar-date" style="width: 30px;font-size: 24px;"></i>
           <?php
             date_default_timezone_set('America/Mexico_City');
-            $newDate = date("y-m-d h:i:s:a", strtotime("fecha_crea")); ?>
-          <?php $fechaActual = date('d/m/y H:i:s'); ?>
+            $fechaActual = date('d/m/y H:i:s'); ?>
           <input type="text" readonly="readonly"  class="form-control" id="validationCustomUsername" placeholder="tipo de usuario" name="fecha_crea" value="<?php echo $fechaActual ?>" aria-describedby="inputGroupPrepend" required>
         </label>
       </div>
@@ -86,7 +85,7 @@
   <div class="form-row">
     <div class="col-md-8 mb- 3">
       <label  id="form_ticket" style="display:inline-flex!important" for="validationCustom03">Titulo</label>
-        <input type="text" class="form-control" id="validationCustom03" placeholder="ej. No puedo acceder a la plataforma xxxx"  name="titulo" required>
+        <input type="text" class="form-control" id="validationCustom03" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="ej. No puedo acceder a la plataforma xxxx"  name="titulo" required>
       <div class="invalid-feedback">
         Por favor agrege el titulo a su reporte.
       </div>
@@ -120,20 +119,16 @@
 <br>
 
 <label class="control-label">Description</label>
-<textarea name="descripcion" id="" cols="30" rows="10" class="form-control summernote"><?php echo isset($description) ? $description : '' ?></textarea>
-
+<textarea name="descripcion" id="hint2basic" cols="30" rows="10" class="form-control summernote"><?php echo isset($description) ? $description : '' ?></textarea>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<button class="btn btn-primary" id="save" class="btn btn-primary" onclick="save()" type="submit">Crear ticket</button>
 
-
-  <button class="btn btn-primary" id="save" class="btn btn-primary" onclick="save()" type="submit">Crear ticket</button>
 </form>
 
 
   <?php } ?>
 
 <!-- Ejemplo de un form en php------->
-
-
 </body>
 
 
@@ -141,6 +136,7 @@
  <script>
    $(document).ready(function() {
        $('.summernote').summernote(
+
                     //  $('.summernote').eq(0).html('{{$texto[0]->hechos}}'),
                     //  $('.summernote').eq(1).html('{{$texto[0]->pruebas}}'),
                   //    $('.summernote').eq(2).html('{{$texto[0]->anexos}}'),
@@ -165,6 +161,28 @@
                   );
 
               });
+              $(".hint2mention").summernote({
+                height: 100,
+                toolbar: false,
+                hint: {
+                  mentions: ['jayden', 'sam', 'alvin', 'david'],
+                  match: /\B@(\w*)$/,
+                  search: function (keyword, callback) {
+                    callback($.grep(this.mentions, function (item) {
+                      return item.indexOf(keyword) == 0;
+                    }));
+                  },
+                  content: function (item) {
+                    return '@' + item;
+          }
+        }
+      });
 
+      $('.summernote').summernote({
+  height: 150,   //set editable area's height
+  codemirror: { // codemirror options
+    theme: 'monokai'
+  }
+});
 
  </script>
