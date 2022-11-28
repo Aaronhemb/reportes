@@ -4,15 +4,17 @@
 <center>
 <h3> La informacion se genero correctamente , gracias!
   <br><br>  <div class="Reportes">
-       <a href="new_ticket.php" class="btn btn-success pull-right" style="
-       margin-left: 8px;
-           padding-left: 272px;
-           padding-right: 255px;
+       <a href="new_ticket.php" class="btn btn-success" style="
+
+       padding-left: 272px;
+       padding-right: 255px;
+         float: none;
+
 
        "><span class="glyphicon glyphicon-export"></span>crear mas tickets</a>
     </div><br><br><br>
     <div class="Reportes">
-         <a href="ticket.php" class="btn btn-info pull-right" style="
+         <a href="ticket.php" class="btn btn-info " style="
          margin-left: 8px;
              padding-left: 272px;
              padding-right: 255px;

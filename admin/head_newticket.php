@@ -42,8 +42,10 @@ include("control/conexion.php"); //conexion con el servidor
 			<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 					<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
-					<!--Link de boton collapse-->
-			
+					<!--Link modal-->
+
+
+
     <title></title>
   </head>
   <body>

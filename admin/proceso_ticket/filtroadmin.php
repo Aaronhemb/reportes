@@ -16,8 +16,9 @@ margin-bottom: 150px;
                           <td id="arriba_abajo" style="text-align:center;">Perfil</td>
                           <td id="arriba_abajo" style="text-align:center;">Area</td>
                           <td id="arriba_abajo" style="text-align:center;">Status</td>
+                          <td id="arriba_abajo" style="text-align:center;">Status</td>
                           <td id="arriba_abajo" style="text-align:center;">Fecha Creacion</td>
-                            <td id="arriba_abajo" style="text-align:center;">view</td>
+                          <td id="arriba_abajo" style="text-align:center;">view</td>
                         </tr>
 
                 </thead>
@@ -48,10 +49,32 @@ margin-bottom: 150px;
 
                                  </td>
                                 <?php
+                                ?>
+                                <?php if ($rowSql['status'] == 0): ?>
+                                <td id="status"> <button type="button" id="status" name="button"></button> </td>
+                              <?php elseif ($rowSql['status'] == 1):?>
+                                  <td id="status"> <button type="button" id="status2" name="button"></button> </td>
+                                <?php elseif ($rowSql['status'] == 2):?>
+                                  <td id="status"> <button type="button" id="status3" name="button"></button> </td>
+                                  <?php elseif ($rowSql['status'] == 3):?>
+                                  <td id="status"> <button type="button" id="status3" name="button"></button> </td>
+                                <?php elseif ($rowSql['status'] == 4):?>
+                                  <td id="status"> <button type="button" id="status4" name="button"></button> </td>
+                                <?php endif; ?>
+
+
+                                <?php
+
                                 date_default_timezone_set('America/Mexico_City');
                                 $newDate = date("y-m-d h:i", strtotime($rowSql["fecha_crea"])); ?>
                                 <td id="fecha"><?php echo  $newDate; ?>  </td>
-                              <td> <a href="./comentarios.php?id=<?php echo $rowSql['id_ticket']; ?>"><i class="bi bi-pencil-square"></i></a></td>
+                              <td>
+                                <?php if ($rowSql['status'] == 4): ?>
+                                  <a class="disable"  href="./comentarios.php?id=<?php echo $rowSql['id_ticket']; ?>"><i class="bi bi-pencil-square"></i></a></td>
+                                 <?php else: ?>
+                                      <a href="./comentarios.php?id=<?php echo $rowSql['id_ticket']; ?>"><i class="bi bi-pencil-square"></i></a></td>
+                                <?php endif; ?>
+
 
                     </tr><?php } ?>
                 </tbody>

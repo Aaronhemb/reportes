@@ -56,8 +56,12 @@
                                    date_default_timezone_set('America/Mexico_City');
                                    $newDate = date("y-m-d h:i:s:a", strtotime($rowSql["fecha_crea"])); ?>
                                 <td id="fecha"><?php echo  $newDate; ?>  </td>
-                                    <td> <a href="./comentarios.php?id=<?php echo $rowSql['id_ticket']; ?>"><i class="bi bi-pencil-square"></i></a></td>
-
+                                <td>
+                                  <?php if ($rowSql['status'] == 4): ?>
+                                    <a class="disable" style="cursor: default; pointer-events: none;"  href="./comentarios.php?id=<?php echo $rowSql['id_ticket']; ?>"><i class="bi bi-pencil-square"></i></a></td>
+                                   <?php else: ?>
+                                        <a href="./comentarios.php?id=<?php echo $rowSql['id_ticket']; ?>"><i class="bi bi-pencil-square"></i></a></td>
+                                  <?php endif; ?>
 
                     </tr><?php } ?>
                 </tbody>

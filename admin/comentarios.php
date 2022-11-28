@@ -1,10 +1,12 @@
-<?php Include("head_newticket.php"); ?>
+<?php Include("head_newticket.php");
+    include("./control/conexion.php");
+ ?>
 
 <?php if (@$_GET["i"]=='ok') { // Quiere decir que el fundamento se envio correctamente?>
 <center>
 <h3> La informacion se genero correctamente , gracias!
   <br><br>  <div class="Reportes">
-       <a href="./comentarios.php?id=<?php echo $rowSql['id_ticket']; ?>" class="btn btn-success pull-right" style="
+       <a href="./comentarios.php?id=<?php echo $rowSql['id_ticket']; ?>" class="btn btn-success" style="
        margin-left: 8px;
            padding-left: 272px;
            padding-right: 255px;
@@ -30,10 +32,10 @@ if ($conexion->connect_error) {
 }
 $conexion->set_charset('utf8');
 $id = $_REQUEST['id'];
-  $query = "SELECT * FROM tickets INNER JOIN users  WHERE id_ticket ='$id' ";
+  $query = "SELECT * FROM tickets   WHERE id_ticket ='$id'  ";
   $resultado = $conexion->query($query);
   $row = $resultado->fetch_assoc();
-$conexion->close();
+
  ?>
  <?php include("./comentarios/modificar_comentarios.php") ?>
 
@@ -47,7 +49,7 @@ margin-left: 119px!important;
 
    /*  background:linear-gradient(40deg,#ffd86f,#fc6262) !important;*/
   /*background: linear-gradient(40deg,#45cafc,#303f9f) !important;*/" >
-    <input type="text" readonly id="c_ticket"   value="No.<?php echo $row['id_ticket']; ?>">
+    <input type="text"  readonly id="c_ticket"   value="No.<?php echo $row['id_ticket']; ?>">
     <input type="text" readonly id="c_nombre"   value="<?php echo $row['nombreR']; ?>">
     <input type="text" readonly id="c_nombre"   value="<?php echo $row['departamento']; ?>">
     <input type="text" readonly id="c_nombre"   value="<?php echo $row['perfil']; ?>">
@@ -85,6 +87,7 @@ margin-left: 119px!important;
                           minHeight: null,             // set minimum height of editor
                           maxHeight: null,             // set maximum height of editor
                           lang: 'es-CO',
+                          inheritPlaceholder: true,
                           toolbar: [
                               //[groupName, [list of button]]
                               ['style', ['bold', 'italic', 'underline', 'clear']],
@@ -96,7 +99,9 @@ margin-left: 119px!important;
                               ['undo' , ['undo']],
                               ['redo' , ['redo']]
                           ],
+
                       }
+
                   );
               });
               $('.summernote').summernote({
@@ -113,4 +118,8 @@ var markup = $('.click2edit').summernote('code');
 $('.click2edit').summernote('destroy');
 };
  </script>
+
+ <?php include("./comentarios/trae_comentario.php"); ?>
+
+
  <?php } ?>
