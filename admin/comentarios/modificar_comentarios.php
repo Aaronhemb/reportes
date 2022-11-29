@@ -4,8 +4,12 @@
   <div class="container">
     <a href="#demo" class="btn btn-info" data-toggle="collapse" style="
       margin-left: 20px!important;">Responder</a>
-      <a href="#demo1" class="btn btn-info" data-toggle="collapse" style="
-        margin-left: 20px!important;">Cambiar status</a>
+
+      <?php if ($_SESSION['usr_roll'] ==2): ?>
+    <?php echo  "<a href='#demo1' class='btn btn-success' data-toggle='collapse' style=''
+          margin-left: 30px!important;  display: inline-block!important; '>Cambiar status</a>" ?>
+      <?php endif; ?>
+
     <div id="demo" class="collapse">
       <form id="manage_ticket" class="needs-validation"   action="./comentarios/proceso_guardar.php" enctype="multipart/form-data" method="post">
       <input type="text" hidden name="user_id" value="<?php echo $_SESSION['usr_name'] ?>">
@@ -22,8 +26,12 @@
       <button class="btn btn-primary" id="save" class="btn btn-primary" onclick="save()" type="submit">Responder Ticket</button>
       </form>
     </div>
+    <?php if ($_SESSION['usr_roll'] ==2): ?>
+      <?php include("modificar_estatus.php"); ?>
+    <?php endif; ?>
 
-    <?php include("modificar_estatus.php"); ?>
+
+
 
   </div>
 </div>

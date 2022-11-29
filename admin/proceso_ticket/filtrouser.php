@@ -22,6 +22,7 @@
                           <td id="arriba_abajo" style="text-align:center;">Reporta</td>
                           <td id="arriba_abajo" style="text-align:center;">Area</td>
                           <td id="arriba_abajo" style="text-align:center;">Status</td>
+                          <td id="arriba_abajo" style="text-align:center;">Status</td>
                           <td id="arriba_abajo" style="text-align:center;">Fecha Creacion</td>
                           <td id="arriba_abajo" style="text-align:center;">View</td>
                         </tr>
@@ -52,6 +53,17 @@
                                    ?>
 
                                  </td>
+                                 <?php if ($rowSql['status'] == 0): ?>
+                                 <td id="status"> <div id="status" data-toggle="popover" data-trigger="hover" data-content="Pendiente" ></div> </td>
+                               <?php elseif ($rowSql['status'] == 1):?>
+                                   <td id="status"> <div id="status2" data-toggle="popover" data-trigger="hover" data-content="Proceso" ></div> </td>
+                                 <?php elseif ($rowSql['status'] == 2):?>
+                                   <td id="status"> <div id="status3" data-toggle="popover" data-trigger="hover" data-content="Esperando Usuario" ></div> </td>
+                                   <?php elseif ($rowSql['status'] == 3):?>
+                                   <td id="status"> <div id="status3" data-toggle="popover" data-trigger="hover" data-content="Esperando Tercero" ></div> </td>
+                                 <?php elseif ($rowSql['status'] == 4):?>
+                                   <td id="status"> <div id="status4" data-toggle="popover" data-trigger="hover" data-content="Cerrado" ></div> </td>
+                                 <?php endif; ?>
                                  <?php
                                    date_default_timezone_set('America/Mexico_City');
                                    $newDate = date("y-m-d h:i:s:a", strtotime($rowSql["fecha_crea"])); ?>

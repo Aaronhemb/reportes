@@ -1,25 +1,4 @@
 
-
-
-<?php if (@$_GET["i"]=='ok') { // Quiere decir que el fundamento se envio correctamente?>
-<center>
-<h3> La informacion se genero correctamente , gracias!
-  <br><br>  <div class="Reportes">
-       <a href="comentarios.php" class="btn btn-success pull-right" style="
-       margin-left: 8px;
-           padding-left: 272px;
-           padding-right: 255px;
-
-       "><span class="glyphicon glyphicon-export"></span>crear mas departamento</a>
-    </div><br><br><br>
-
-    </h3>
-</center>
-<?php
-} else{
-?>
-
-
 <div class="input-group mb-3" style="
 display: inline-flex;
 width: 25%;">
@@ -51,9 +30,11 @@ $row = $resultado->fetch_assoc();
     <option value="4">cerrado</option>
   </select>
   <div class="input-group-append">
-    <button class="btn btn-info" type="submit">Aceptar</button>
+  <button id="cambio_status" onclick="funcionAlerta()" class="btn btn-info" type="submit">Aceptar</button>
+
+
   </div>
     </form>
 
 </div>
-<?php } ?>
+ 

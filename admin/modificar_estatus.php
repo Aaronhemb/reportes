@@ -1,4 +1,6 @@
 
+
+
 <?php
 $servidor= "localhost";
 $usuario= "root";
@@ -23,6 +25,18 @@ $conexion->close();
 
 <div id="demo1" class="collapse">
   <form id="manage_ticket" class="needs-validation" action="./comentarios/modificar_status.php?id=<?php echo $row['id_ticket'];  ?>" enctype="multipart/form-data" method="post">
+    <br><br>
+    <?php if ($row['status'] == 0): ?>
+        <td id="status">Status actual : <div id="status" data-toggle="popover" data-trigger="hover" data-content="Pendiente"  ></div> </td>
+      <?php elseif ($row['status'] == 1):?>
+          <td id="status">Status actual   <div id="status2" data-toggle="popover" data-trigger="hover" data-content="Proceso"  ></div> </td>
+        <?php elseif ($row['status'] == 2):?>
+          <td id="status">Status actual  <div id="status3" data-toggle="popover" data-trigger="hover" data-content="Esperando Usuario" ></div> </td>
+        <?php elseif ($row['status'] == 3):?>
+          <td id="status">Status actual   <div id="status3" data-toggle="popover" data-trigger="hover" data-content="Esperando tercero" ></div> </td>
+        <?php elseif ($row['status'] == 4):?>
+          <td id="status">Status actual (cerrado) <div id="status4" data-toggle="popover" data-trigger="hover" data-content="Cerrado" ></div> </td>
+        <?php endif; ?>
 
   <select type="text"  name="status" value="<?php echo $row['status']; ?>">
     <option selected value="">seleccionar opcion</option>

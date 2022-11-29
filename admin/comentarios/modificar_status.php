@@ -10,7 +10,7 @@
  $resultado = $con->query($query);
 
  if ($resultado) {
-header("Location:../ticket.php?i=ok");
+header("Location:../comentarios.php?id=$id");
  //echo "si se inserto";
  }else {
    echo "no se inserto";

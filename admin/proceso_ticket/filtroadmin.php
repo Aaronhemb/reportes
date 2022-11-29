@@ -51,15 +51,15 @@ margin-bottom: 150px;
                                 <?php
                                 ?>
                                 <?php if ($rowSql['status'] == 0): ?>
-                                <td id="status"> <button type="button" id="status" name="button"></button> </td>
+                                <td id="status"> <div id="status" data-toggle="popover" data-trigger="hover" data-content="Pendiente"  ></div> </td>
                               <?php elseif ($rowSql['status'] == 1):?>
-                                  <td id="status"> <button type="button" id="status2" name="button"></button> </td>
+                                  <td id="status"> <div id="status2" data-toggle="popover" data-trigger="hover" data-content="Proceso"  ></div> </td>
                                 <?php elseif ($rowSql['status'] == 2):?>
-                                  <td id="status"> <button type="button" id="status3" name="button"></button> </td>
+                                  <td id="status"> <div id="status3" data-toggle="popover" data-trigger="hover" data-content="Esperando Usuario" ></div> </td>
                                   <?php elseif ($rowSql['status'] == 3):?>
-                                  <td id="status"> <button type="button" id="status3" name="button"></button> </td>
+                                  <td id="status"> <div id="status3" data-toggle="popover" data-trigger="hover" data-content="Esperando Tercero" ></div> </td>
                                 <?php elseif ($rowSql['status'] == 4):?>
-                                  <td id="status"> <button type="button" id="status4" name="button"></button> </td>
+                                  <td id="status"> <div id="status4" data-toggle="popover" data-trigger="hover" data-content="Cerrado" ></div> </td>
                                 <?php endif; ?>
 
 

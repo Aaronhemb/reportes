@@ -64,7 +64,7 @@ margin-left: 119px!important;
         <div class="datos_reporte">
           <h2 id="title"><i class="bi bi-ticket-perforated-fill"></i> TICKET</h2>
           <h4 id="asunto"><i class="bi bi-clipboard2-minus-fill"></i><?php echo $row['titulo']; ?></h4>
-        </div>
+        </div><br><br>
         <div class="texto_comentario">
         <?php echo html_entity_decode($row["descripcion"]);?>
         </div>
