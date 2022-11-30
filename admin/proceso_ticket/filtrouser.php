@@ -19,6 +19,7 @@
                         <tr>
                           <td id="arriba_abajo" style="text-align:center;">Ticket</td>
                           <td id="arriba_abajo" style="text-align:center;">Titulo</td>
+                          <td id="arriba_abajo" style="text-align:center;">Tema</td>
                           <td id="arriba_abajo" style="text-align:center;">Reporta</td>
                           <td id="arriba_abajo" style="text-align:center;">Area</td>
                           <td id="arriba_abajo" style="text-align:center;">Status</td>
@@ -35,6 +36,7 @@
                             <?php include("color_tabla.php");  ?>
                                 <td id="i_ticket"><?php echo $rowSql['id_ticket']; ?></td>
                                 <td id="titulo"> <?php echo $rowSql ["titulo"]; ?> </td>
+                                <td id="titulo"> <?php echo $rowSql ["tema"]; ?> </td>
                                 <td id="nombre"><?php echo $rowSql ["nombreR"]; ?></td>
                                 <td id="sede"><?php echo $rowSql ["departamento"]; ?></td>
                                 <td id="status">

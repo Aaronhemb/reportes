@@ -20,7 +20,7 @@
       <textarea name="comentario"   cols="30" rows="10" class="summernote" placeholder="comentario real"><?php echo isset($comentario) ? $comentario : '' ?></textarea>
       <?php
       date_default_timezone_set('America/Mexico_City');
-      $fechaActual = date('d/m/y H:i:s'); ?>
+      $fechaActual = date('d-m-y H:i:s'); ?>
       <input type="text" hidden readonly="readonly"   class="form-control" id="validationCustom02" placeholder="" name="fecha_crea" value="<?php echo $fechaActual ?>" >
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
       <button class="btn btn-primary" id="save" class="btn btn-primary" onclick="save()" type="submit">Responder Ticket</button>

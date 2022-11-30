@@ -63,6 +63,8 @@ margin-left: 119px!important;
     <blockquote class="blockquote mb-0">
         <div class="datos_reporte">
           <h2 id="title"><i class="bi bi-ticket-perforated-fill"></i> TICKET</h2>
+          <h4 id="tema" style="margin-left: 672px!important; margin-top: -37px !important;">
+            <i class="bi bi-cursor-fill"></i> <?php echo $row['tema']; ?> </h4>
           <h4 id="asunto"><i class="bi bi-clipboard2-minus-fill"></i><?php echo $row['titulo']; ?></h4>
         </div><br><br>
         <div class="texto_comentario">

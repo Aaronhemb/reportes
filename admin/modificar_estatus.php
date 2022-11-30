@@ -1,6 +1,3 @@
-
-
-
 <?php
 $servidor= "localhost";
 $usuario= "root";
@@ -19,12 +16,14 @@ $id = $_REQUEST['id'];
   $resultado = $conexion->query($query);
   $row = $resultado->fetch_assoc();
 
+
 $conexion->close();
 
  ?>
 
-<div id="demo1" class="collapse">
-  <form id="manage_ticket" class="needs-validation" action="./comentarios/modificar_status.php?id=<?php echo $row['id_ticket'];  ?>" enctype="multipart/form-data" method="post">
+
+<div id="demo1" class="collapse"> <!--  ./comentarios/modificar_status.php?id=<?php echo $row['id_ticket'];?>  --->
+  <form id="manage_ticket" class="needs-validation" action="./comentarios/trae_cambio_status.php?id=<?php echo $row['id_ticket'];?>"  enctype="multipart/form-data" method="post">
     <br><br>
     <?php if ($row['status'] == 0): ?>
         <td id="status">Status actual : <div id="status" data-toggle="popover" data-trigger="hover" data-content="Pendiente"  ></div> </td>
@@ -46,8 +45,17 @@ $conexion->close();
     <option value="3">Esperando a tercero</option>
     <option value="4">Cierre</option>
   </select>
+  <input type="text" hidden name="user_id" value="<?php echo $_SESSION['usr_name'] ?>">
+  <input type="text" hidden name="user_type" value="<?php echo 	$_SESSION['usr_departamento'] ?>">
+  <input type="text" hidden name="ticket_id" value="<?php echo $row['id_ticket']; ?>">
+  <input type="text" hidden name="id_perfil" value="<?php echo $_SESSION['usr_perfil'] ?>">
+  <?php
+  date_default_timezone_set('America/Mexico_City');
+  $fechaActual = date('y-m-d H:i:s'); ?>
+  <input type="text" hidden readonly="readonly"   class="form-control" id="validationCustom02" placeholder="" name="fecha_crea" value="<?php echo $fechaActual ?>" >
+  <button name="cambio_estatus" class="btn btn-primary" type="submit" >Cambiar status</button>
 
-  <button class="btn btn-primary" type="submit" >Cambiar status</button>
+
 
 <br><br><br>
   </form>
